@@ -12,3 +12,4 @@ while read link; do
 		echo "- [$(echo -n ${link}| rev| cut -d '/' -f 1| rev)](${link})" >> README.md
 	done < <(echo "${link}"|sed -e 's|[^/]||g'|cut -c 8-|wc -m)
 done < ${links}
+rm ${links}
