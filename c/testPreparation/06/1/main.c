@@ -1,3 +1,4 @@
+// копирайте съдържанието на файл1 във файл2
 #include <stdlib.h>
 #include <err.h>
 #include <sys/types.h>
