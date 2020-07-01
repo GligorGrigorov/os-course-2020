@@ -36,6 +36,6 @@ int main(int argc, char** argv)
 		if(buf == '\n')
 			lines++;
 	}
-
+	close(fd1);
 	exit(0);
 }

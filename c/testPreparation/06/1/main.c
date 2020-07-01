@@ -5,6 +5,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 
 int main(int argc, char** argv)
 {
@@ -13,16 +14,26 @@ int main(int argc, char** argv)
 	int fd1;
 	if((fd1 = open(argv[1], O_RDONLY)) == -1)
 		err(2,"Error opening file %s", argv[1]);	
-	
 	int fd2;
 	if((fd2 = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR )) == -1)
+	{
+		
+		int olderrno = errno;
+		close(fd1);
+		errno = olderrno;
 		err(3,"Error opening file %s", argv[2]);
+	}
 	char buf;
 	int size;
 	while((size = read(fd1, &buf, sizeof(buf))) > 0)
 	{
 		if(write(fd2, &buf, size) == -1)
+		{	int olderrno = errno;
+			close(fd1);
+			close(fd2);
+			errno = olderrno;
 			err(4,"Error writing to file %s", argv[2]);
+		}
 	}
 	close(fd1);
 	close(fd2);
