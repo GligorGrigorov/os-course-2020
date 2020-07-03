@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 		uint8_t new;
 	};
 	struct patch p;
-	int offset = 0;
+	p.offset = 0;
 	while(read(fd1,&p.original,sizeof(p.original)) == sizeof(p.original))
 	{
 		if(read(fd2,&p.new,sizeof(p.new)) != sizeof(p.new))
@@ -70,7 +70,6 @@ int main(int argc, char** argv)
 		
 		if(p.original != p.new)
 		{
-			p.offset = offset;
 			if(write(fdp,&p,sizeof(p)) != sizeof(p))
 			{
 				int olderrno = errno;
@@ -81,7 +80,7 @@ int main(int argc, char** argv)
 				err(9,"Error writing to file %s", argv[3]);
 			}	
 		}
-		offset++;
+		p.offset++;
 	}
 	close(fd1);
 	close(fd2);
