@@ -7,6 +7,7 @@ Materials from Operating Systems course at FMI-SU
 	- [task36](https://github.com/GligorGrigorov/os-course-2020/tree/master/c/task36)
 	- [task44](https://github.com/GligorGrigorov/os-course-2020/tree/master/c/task44)
 	- [testPreparation](https://github.com/GligorGrigorov/os-course-2020/tree/master/c/testPreparation)
+		- [task38](https://github.com/GligorGrigorov/os-course-2020/tree/master/c/testPreparation/task38)
 		- [task34](https://github.com/GligorGrigorov/os-course-2020/tree/master/c/testPreparation/task34)
 		- [06](https://github.com/GligorGrigorov/os-course-2020/tree/master/c/testPreparation/06)
 			- [2](https://github.com/GligorGrigorov/os-course-2020/tree/master/c/testPreparation/06/2)
